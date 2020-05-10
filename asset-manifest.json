@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-performance-monitoring/static/css/main.d498bfb3.chunk.css",
+    "main.js": "/react-performance-monitoring/static/js/main.c031763b.chunk.js",
+    "main.js.map": "/react-performance-monitoring/static/js/main.c031763b.chunk.js.map",
+    "runtime-main.js": "/react-performance-monitoring/static/js/runtime-main.b2d5d3cf.js",
+    "runtime-main.js.map": "/react-performance-monitoring/static/js/runtime-main.b2d5d3cf.js.map",
+    "static/js/2.e7479b7e.chunk.js": "/react-performance-monitoring/static/js/2.e7479b7e.chunk.js",
+    "static/js/2.e7479b7e.chunk.js.map": "/react-performance-monitoring/static/js/2.e7479b7e.chunk.js.map",
+    "index.html": "/react-performance-monitoring/index.html",
+    "precache-manifest.7b44af272abbbb8ae9a32559ebf74396.js": "/react-performance-monitoring/precache-manifest.7b44af272abbbb8ae9a32559ebf74396.js",
+    "service-worker.js": "/react-performance-monitoring/service-worker.js",
+    "static/css/main.d498bfb3.chunk.css.map": "/react-performance-monitoring/static/css/main.d498bfb3.chunk.css.map",
+    "static/js/2.e7479b7e.chunk.js.LICENSE.txt": "/react-performance-monitoring/static/js/2.e7479b7e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b2d5d3cf.js",
+    "static/js/2.e7479b7e.chunk.js",
+    "static/css/main.d498bfb3.chunk.css",
+    "static/js/main.c031763b.chunk.js"
+  ]
+}
