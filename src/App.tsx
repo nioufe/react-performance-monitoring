@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { ReactProfilerProd } from "./ReactProfilerProd";
 import { startLongTaskObserver } from "./performance-monitor";
 function AddBar({ addTodo }: { addTodo: (name: string) => void }) {
   const [todoName, setTodoName] = useState("");
@@ -41,7 +41,9 @@ function App() {
         <AddBar addTodo={(name: string) => setTodoList([...todoList, name])} />
         <ul>
           {todoList.map((name, index) => (
-            <TodoLine key={index} name={name} />
+            <ReactProfilerProd key={index} id="TodoLine">
+              <TodoLine name={name} />
+            </ReactProfilerProd>
           ))}
         </ul>
       </div>

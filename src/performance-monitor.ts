@@ -16,5 +16,5 @@ export const startLongTaskObserver = () => {
     }
   });
   // register observer for long task notifications
-  observer.observe({ entryTypes: ["longtask", "mark"] });
+  observer.observe({ entryTypes: ["longtask"] });
 };
