@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
+import { startLongTaskObserver } from "./performance-monitor";
 function AddBar({ addTodo }: { addTodo: (name: string) => void }) {
   const [todoName, setTodoName] = useState("");
   return (
@@ -8,7 +9,6 @@ function AddBar({ addTodo }: { addTodo: (name: string) => void }) {
       onChange={(e) => setTodoName(e.target.value)}
       onKeyPress={(e) => {
         if (e.key === "Enter") {
-          console.log("add");
           addTodo(todoName);
           setTodoName("");
         }
@@ -30,16 +30,18 @@ function TodoLine({ name }: { name: string }) {
 }
 
 function App() {
+  useEffect(() => {
+    startLongTaskObserver();
+  }, []);
   const [todoList, setTodoList] = useState<string[]>([]);
-  console.log(todoList);
   return (
     <div className="flex flex-row justify-center">
       <div className="container flex flex-col">
         <h1 className="underline text-red">TODOLIST</h1>
         <AddBar addTodo={(name: string) => setTodoList([...todoList, name])} />
         <ul>
-          {todoList.map((name) => (
-            <TodoLine name={name} />
+          {todoList.map((name, index) => (
+            <TodoLine key={index} name={name} />
           ))}
         </ul>
       </div>

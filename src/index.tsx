@@ -12,7 +12,7 @@ datadogLogs.init({
   sampleRate: 100
 });
 
-datadogLogs.logger.info('making sure logs work')
+datadogLogs.logger.info('Javascript loaded - React Performance Monitoring')
 
 ReactDOM.render(
   <React.StrictMode>

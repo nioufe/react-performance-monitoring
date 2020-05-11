@@ -22,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn build --profile",
+    "deploy": "gh-pages -d build -r git@github.com:nioufe/nioufe.github.io.git -e react-performance-monitoring -b master"
   },
   "eslintConfig": {
     "extends": "react-app"
