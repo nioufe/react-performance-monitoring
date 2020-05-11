@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { ReactProfilerProd } from "./ReactProfilerProd";
-import { startLongTaskObserver } from "./performance-monitor";
+import { ReactProfilerProd } from "./monitoring/ReactProfilerProd";
+import { startLongTaskObserver } from "./monitoring/long-task-observer";
+import { agent } from "./monitoring/stats-agent";
 function AddBar({ addTodo }: { addTodo: (name: string) => void }) {
   const [todoName, setTodoName] = useState("");
   return (
@@ -20,7 +21,7 @@ function AddBar({ addTodo }: { addTodo: (name: string) => void }) {
 }
 
 function TodoLine({ name }: { name: string }) {
-  const slow = Date.now() + 100;
+  const slow = Date.now() + 25;
   while (Date.now() < slow) {}
   return (
     <li className="w-full border border-gray-500 rounded-lg py-2 px-4 mt-2">
@@ -38,14 +39,23 @@ function App() {
     <div className="flex flex-row justify-center">
       <div className="container flex flex-col">
         <h1 className="underline text-red">TODOLIST</h1>
-        <AddBar addTodo={(name: string) => setTodoList([...todoList, name])} />
-        <ul>
-          {todoList.map((name, index) => (
-            <ReactProfilerProd key={index} id="TodoLine">
-              <TodoLine name={name} />
-            </ReactProfilerProd>
-          ))}
-        </ul>
+        <AddBar
+          addTodo={(name: string) => {
+            setTodoList([...todoList, name]);
+            agent.markUserAction("add_todo", {
+              total_todos: todoList.length + 1,
+            });
+          }}
+        />
+        <ReactProfilerProd id="TodoList">
+          <ul>
+            {todoList.map((name, index) => (
+              <ReactProfilerProd key={index} id="TodoLine">
+                <TodoLine name={name} />
+              </ReactProfilerProd>
+            ))}
+          </ul>
+        </ReactProfilerProd>
       </div>
     </div>
   );
