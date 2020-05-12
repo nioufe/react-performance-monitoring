@@ -34,7 +34,6 @@ interface MetricMessage {
   };
 }
 
-const roundDate = (timestamp: number) => Math.round(timestamp / 10000) * 10000;
 let buffer: Metric[] = [];
 interface UserAction {
   name: string;
